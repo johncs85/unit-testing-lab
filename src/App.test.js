@@ -11,4 +11,12 @@ describe("Todo App", () => {
     expect(input).toBeInTheDocument()
     expect(button).toBeInTheDocument()
   })
+
+  test("todo list starts empty", () => {
+    const app = render(<App />)
+
+    const todo = app.queryByRole("listitem")
+    expect(todo).toBeNull()
+  })
+
 })
