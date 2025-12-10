@@ -19,4 +19,17 @@ describe("Todo App", () => {
     expect(todo).toBeNull()
   })
 
+   test("clicking button adds a todo to the todo list", () => {
+    const app = render(<App />)
+
+    const input = app.getByPlaceholderText("Enter a todo")
+    const button = app.getByText("Add Todo")
+
+    fireEvent.change(input, { target: { value: "Take a Nap!" } })
+    fireEvent.click(button)
+
+    const todo = app.getByText("Take a Nap!")
+    expect(todo).toBeInTheDocument()
+  })
+
 })
