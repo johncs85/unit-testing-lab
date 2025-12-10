@@ -5,10 +5,11 @@ const App = () => {
   const [todos, setTodos] = useState([])
 
   const handleAddTodo = () => {
+    // return when input is empty
     if (todo.trim() === "") return
 
     setTodos([...todos, todo])
-    setTodo("")
+    setTodo("") // Clear input after adding
   }
 
   return(

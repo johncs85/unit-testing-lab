@@ -32,4 +32,16 @@ describe("Todo App", () => {
     expect(todo).toBeInTheDocument()
   })
 
+  test("input clears after successfully adding a todo", () => {
+    const app = render(<App />)
+
+    const input = app.getByPlaceholderText("Enter a todo")
+    const button = app.getByText("Add Todo")
+
+    fireEvent.change(input, { target: { value: "Learn Jest" } })
+    fireEvent.click(button)
+
+    expect(input.value).toBe("")
+  })
+
 })
