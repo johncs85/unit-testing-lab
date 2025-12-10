@@ -9,7 +9,7 @@ const App = () => {
     if (todo.trim() === "") return
 
     setTodos([...todos, todo])
-    setTodo("") // Clear input after adding
+    setTodo("") // Clear input after adding todo
   }
 
   return(
