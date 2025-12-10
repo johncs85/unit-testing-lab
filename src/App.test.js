@@ -1,8 +1,14 @@
-import { render, fireEvent} from '@testing-library/react';
-import App from './App';
+import { render, fireEvent} from '@testing-library/react'
+import App from './App'
 
-test('renders hello world', () => {
-  const app = render(<App />);
-  const heading = app.getByRole('heading')
-  expect(heading).toHaveTextContent('Hello, World!');
-});
+describe("Todo App", () => {
+  test("renders input and Add Todo button", () => {
+    const app = render(<App />)
+
+    const input = app.getByPlaceholderText("Enter a todo")
+    const button = app.getByText("Add Todo")
+
+    expect(input).toBeInTheDocument()
+    expect(button).toBeInTheDocument()
+  })
+})
